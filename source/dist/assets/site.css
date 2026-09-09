@@ -169,3 +169,10 @@ body{background:#edf2ef}
 .faq-guide .button{flex:0 0 auto;white-space:nowrap}
 @media(min-width:931px){.faq-intro{align-items:stretch}.faq-intro>.photo-frame{position:relative;top:auto;align-self:stretch;aspect-ratio:auto;min-height:0;height:auto}.faq-intro>.photo-frame img{height:100%;object-fit:cover}.faq-intro>div:last-child{display:flex;min-width:0;flex-direction:column}}
 @media(max-width:620px){.faq-guide{align-items:flex-start;flex-direction:column}.faq-guide .button{width:100%}}
+
+/* Hero trust points alternate between NANOFIX green and warm gold. */
+.hero-copy .trust-row span{display:inline-flex;align-items:center;color:#79dea9;text-shadow:0 0 10px rgba(121,222,169,.5);animation:trustDualColour 3.6s ease-in-out infinite}
+.hero-copy .trust-row span:nth-child(2){animation-delay:1.2s}
+.hero-copy .trust-row span:nth-child(3){animation-delay:2.4s}
+@keyframes trustDualColour{0%,100%{color:#79dea9;text-shadow:0 0 8px rgba(121,222,169,.48);filter:brightness(.9)}45%,58%{color:#ffd060;text-shadow:0 0 16px rgba(255,208,96,.8);filter:brightness(1.16)}}
+@media(prefers-reduced-motion:reduce){.hero-copy .trust-row span{animation:none;color:#ffd060;text-shadow:none;filter:none}}
