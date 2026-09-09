@@ -26,7 +26,7 @@
 .benefit-card{background:#fff;border:1px solid var(--line);border-radius:22px;padding:28px;box-shadow:0 12px 38px rgba(23,50,77,.055)}
 .benefit-card>span{display:inline-flex;color:var(--orange-dark);font-weight:900;letter-spacing:.08em}.benefit-card h3{font-size:1.35rem;margin:10px 0 8px}.benefit-card p{color:var(--muted);margin:0}
 .process-split{grid-template-columns:.92fr 1.08fr;gap:54px}.process-split .photo-frame{border:0;aspect-ratio:4/5}.process-split .section-heading{margin-bottom:20px}.steps-compact{grid-template-columns:repeat(2,1fr);gap:14px 18px}.steps-compact .step{padding-top:16px}.steps-compact .step::before{font-size:1.25rem}.steps-compact h3{font-size:1rem;line-height:1.35;margin:0}
-.faq-intro{grid-template-columns:.78fr 1.22fr;align-items:start}.faq-intro>.photo-frame{border:0;aspect-ratio:4/5;position:sticky;top:110px}
+.faq-intro{grid-template-columns:.78fr 1.22fr;align-items:stretch}.faq-intro>.photo-frame{border:0;aspect-ratio:auto;min-height:0;position:static;align-self:stretch}.faq-intro>.photo-frame img{height:100%;object-fit:cover}.faq-more-row{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:12px;padding:17px 20px;border:1px solid var(--line);border-radius:16px;background:#fff;color:var(--green-deep);font-weight:850}.faq-more-row span:last-child{font-size:.9rem}.faq-more-row:hover{background:var(--mint)}
 @media(max-width:930px){.hero-photo{min-height:650px}.hero-copy{width:min(720px,78%)}.feature-row,.process-split,.faq-intro{grid-template-columns:1fr}.feature-row-reverse .photo-frame,.feature-row-reverse .prose{order:initial}.faq-intro>.photo-frame{position:static;aspect-ratio:16/10}.process-split .photo-frame{aspect-ratio:16/10}}
 @media(max-width:620px){.hero-photo{min-height:680px}.hero-photo-bg{object-position:68% center}.hero-photo-shade{background:linear-gradient(90deg,rgba(4,20,33,.94),rgba(5,23,37,.72)),linear-gradient(0deg,rgba(4,20,33,.85),transparent)}.hero-overlay{padding-top:58px;padding-bottom:58px}.hero-copy{width:100%}.hero-copy h1{font-size:2.62rem}.service-visual-cards,.benefit-grid,.steps-compact{grid-template-columns:1fr}.visual-card>img{height:210px}.feature-stack{gap:58px}}
 
@@ -49,7 +49,7 @@ body{background:#edf2ef}
 .resource-copy h2{font-size:clamp(1.65rem,2.5vw,2.45rem)}
 .visual-card-copy h3,.benefit-card h3,.card h3{font-size:1.12rem;line-height:1.24}
 .benefit-card{min-height:210px}
-.faq-intro>.photo-frame{aspect-ratio:4/5;min-height:560px}
+.faq-intro>.photo-frame{aspect-ratio:auto;min-height:0}
 .faq-intro>.photo-frame img{object-position:center center}
 .map-frame{margin-top:22px;border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,.22);box-shadow:0 10px 24px rgba(0,0,0,.18)}
 .map-frame iframe{display:block;width:100%;height:210px;border:0}
@@ -119,6 +119,20 @@ body{background:#edf2ef}
 .trust-row span::before{width:28px;height:28px;font-size:1rem;line-height:1;place-items:center}
 .step::before{font-size:2rem;line-height:1}
 .review-index::before{font-size:1.55rem;line-height:1}
-.consent-field label{display:flex;align-items:flex-start;gap:10px;font-weight:600}.consent-field input{width:19px;height:19px;flex:0 0 19px;margin-top:3px;accent-color:var(--green-deep)}
-
-.logo.logo-image{display:block;width:148px;margin-right:auto}.logo.logo-image .logo-img{display:block;width:100%;height:auto;max-width:none}.footer .logo.logo-image{width:190px;padding:6px;background:#fff;border-radius:12px;margin-bottom:14px}@media(max-width:620px){.logo.logo-image{width:122px}.footer .logo.logo-image{width:178px}}
+.logo.logo-image{display:block;width:89px;margin-right:auto}.logo.logo-image .logo-img{display:block;width:100%;height:auto;max-width:none}.footer .logo.logo-image{width:76px;padding:0;background:transparent;border-radius:0;margin-bottom:14px}.footer .logo.logo-image .logo-img{width:100%}@media(max-width:620px){.logo.logo-image{width:73px}.footer .logo.logo-image{width:71px}}
+/* NANOFIXAC visual update: scaled logos, corrected map height, WhatsApp icon/dot and sequential trust-line glow. */
+.map-frame iframe{height:305px}
+.trust-row span{animation:trustTicker 2.7s ease-in-out infinite}
+.trust-row span:nth-child(2){animation-delay:.45s}
+.trust-row span:nth-child(3){animation-delay:.9s}
+@keyframes trustTicker{0%,100%{opacity:.62;filter:none;transform:translateY(0)}10%,28%{opacity:1;filter:drop-shadow(0 0 8px rgba(255,208,96,.72));transform:translateY(-1px)}38%,80%{opacity:.62;filter:none;transform:translateY(0)}}
+@keyframes waPulseGreen{0%,100%{transform:translateY(-50%) scale(1);box-shadow:0 0 0 8px rgba(37,211,102,.16),0 15px 36px rgba(7,91,64,.32)}50%{transform:translateY(-50%) scale(1.08);box-shadow:0 0 0 14px rgba(37,211,102,.25),0 20px 46px rgba(7,91,64,.42)}}
+.whatsapp-float{top:75%;right:22px;bottom:auto;transform:translateY(-50%);width:66px;height:66px;padding:0;border:0;border-radius:50%;display:grid;place-items:center;background:linear-gradient(145deg,#45e681 0%,#20c967 55%,#16b958 100%);color:#fff;box-shadow:0 0 0 8px rgba(37,211,102,.16),0 15px 36px rgba(7,91,64,.32);animation:waPulseGreen 1.75s ease-in-out infinite}
+.whatsapp-float .wa-icon{display:grid;place-items:center;width:48px;height:48px;border:3px solid #fff;border-radius:50%;color:#fff}
+.whatsapp-float .wa-icon svg{width:34px;height:34px;display:block}
+.whatsapp-float .wa-label{display:none}
+.whatsapp-float .wa-dot{position:absolute;top:0;right:0;width:15px;height:15px;border-radius:50%;background:#ff8f99;border:2px solid #fff;box-shadow:0 0 0 1px rgba(255,143,153,.18);animation:waDotBreath 1.75s ease-in-out infinite}
+.whatsapp-float::after{content:"";position:absolute;inset:-8px;border:2px solid rgba(37,211,102,.5);border-radius:50%;animation:waRingStrong 1.75s ease-out infinite;pointer-events:none}
+@keyframes waDotBreath{0%,100%{transform:scale(.82);opacity:.72;box-shadow:0 0 0 0 rgba(255,70,85,.42)}45%{transform:scale(1.22);opacity:1;box-shadow:0 0 0 7px rgba(255,70,85,0)}}
+@media(max-width:620px){.whatsapp-float{right:14px;width:60px;height:60px}.whatsapp-float .wa-icon{width:43px;height:43px}.whatsapp-float .wa-icon svg{width:30px;height:30px}.whatsapp-float .wa-dot{width:14px;height:14px}}
+@media(prefers-reduced-motion:reduce){.trust-row span,.whatsapp-float,.whatsapp-float::after,.whatsapp-float .wa-dot{animation:none}}
