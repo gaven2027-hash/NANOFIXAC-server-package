@@ -1,0 +1,6 @@
+source/node_modules/
+source/dist/
+.DS_Store
+.env
+.env.*
+!.env.example

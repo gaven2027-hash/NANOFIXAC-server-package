@@ -1,0 +1,38 @@
+{
+  "version": 2,
+  "locale_default": "en-SG",
+  "locales": [
+    "en-SG",
+    "zh-SG"
+  ],
+  "company": {
+    "name": "NANOFIX PTE. LTD.",
+    "uen": "202539469C",
+    "phone": "+65 8038 7877",
+    "email": "nanofixac@gmail.com"
+  },
+  "routes": [
+    "/",
+    "/services/",
+    "/services/high-temperature-steam-chemical-cleaning/",
+    "/services/steam-vs-standard-aircon-cleaning/",
+    "/services/why-steam-chemical-cleaning/",
+    "/services/pricing-packages/",
+    "/faq-reviews/",
+    "/faq-reviews/aircon-cleaning-faq/",
+    "/faq-reviews/customer-reviews/",
+    "/faq-reviews/before-after/",
+    "/contact/",
+    "/privacy/",
+    "/terms/"
+  ],
+  "booking_fields": [
+    "name",
+    "mobile",
+    "postal_code",
+    "property_type",
+    "unit_count",
+    "preferred_date",
+    "details"
+  ]
+}

@@ -1,0 +1,25 @@
+server {
+    listen 80;
+    server_name nanofixac.com www.nanofixac.com;
+    root /var/www/nanofixac/public;
+    index index.html;
+
+    location / {
+        try_files $uri $uri/ $uri/index.html /404.html;
+    }
+
+    location ~* \.(?:css|js|webp|png|jpg|jpeg|svg|ico|xml|txt)$ {
+        try_files $uri =404;
+        add_header Cache-Control "public, max-age=604800, immutable";
+    }
+
+    location /admin/ {
+        try_files $uri $uri/ $uri/index.html /404.html;
+        add_header X-Robots-Tag "noindex, nofollow" always;
+    }
+
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header Referrer-Policy "strict-origin-when-cross-origin" always;
+    add_header Permissions-Policy "camera=(), microphone=(), geolocation=()" always;
+}
+

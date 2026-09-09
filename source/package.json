@@ -1,0 +1,10 @@
+{
+  "name": "nanofix-aircon-cleaning-site",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "node site-src/generate.mjs",
+    "check": "node scripts/check-deploy.mjs"
+  },
+  "engines": { "node": ">=20" }
+}
