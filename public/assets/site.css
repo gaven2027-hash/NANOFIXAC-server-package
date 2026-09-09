@@ -161,3 +161,11 @@ body{background:#edf2ef}
 .footer-grid h3+a,.footer-grid h3+.friend-link{margin-top:0}
 .footer-bottom{justify-content:center;text-align:center}
 @media(max-width:620px){.map-frame iframe{height:315px}.footer-wordmark,.footer-grid h3{min-height:auto}}
+
+/* Homepage FAQ: three concise questions, a bottom guide and equal-height columns. */
+.faq-guide{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:18px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72)}
+.faq-guide strong{display:block;font-size:1.04rem;color:var(--navy)}
+.faq-guide p{max-width:500px;margin:4px 0 0;color:var(--muted);font-size:.92rem;line-height:1.5}
+.faq-guide .button{flex:0 0 auto;white-space:nowrap}
+@media(min-width:931px){.faq-intro{align-items:stretch}.faq-intro>.photo-frame{position:relative;top:auto;align-self:stretch;aspect-ratio:auto;min-height:0;height:auto}.faq-intro>.photo-frame img{height:100%;object-fit:cover}.faq-intro>div:last-child{display:flex;min-width:0;flex-direction:column}}
+@media(max-width:620px){.faq-guide{align-items:flex-start;flex-direction:column}.faq-guide .button{width:100%}}

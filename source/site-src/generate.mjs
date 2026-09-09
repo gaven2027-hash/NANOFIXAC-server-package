@@ -262,7 +262,7 @@ const reviewDraftsZh = [
 ];
 
 function homeV2Final(locale){
-  const zh=locale==='zh'; let html=homeV2(locale);
+  const zh=locale==='zh',p=zh?'/zh':''; let html=homeV2(locale);
   const benefits=zh?[
     ['免大拆，不影响整机原厂质保','室内机保持在墙上，风轮保持原位；只拆过滤网、外盖和必要面板，避免改动密封制冷系统。'],
     ['化学清洗顽固污垢','适用的空调化学清洗剂帮助分解翅片、原位风轮、出风口和排水盘上的油膜、灰尘及有机积垢。'],
@@ -282,6 +282,11 @@ function homeV2Final(locale){
   const oldTrust=zh?'<span>免大拆</span><span>卫生深洗</span><span>清洗后测试</span>':'<span>No major dismantling</span><span>Hygiene-focused</span><span>Post-clean testing</span>';
   const newTrust=zh?'<span>免大拆，不影响整机原厂质保</span><span>化学清洗，去除顽固污垢</span><span>高温蒸汽，杀菌除味</span>':'<span>No major dismantling — designed to preserve the original manufacturer warranty</span><span>Chemical cleaning removes stubborn grime</span><span>High-temperature steam sanitises and removes odour</span>';
   html=html.replace(oldTrust,newTrust);
+  const faqFive=faqMarkup(locale,faqs[locale].slice(0,5));
+  const faqThree=faqMarkup(locale,faqs[locale].slice(0,3));
+  const faqTopLink=`<a class="text-link" href="${p}/faq-reviews/">${zh?'查看全部问题':'View all questions'}</a>`;
+  const faqGuide=`<div class="faq-guide"><div><strong>${zh?'还有其他空调清洗问题？':'Have another aircon cleaning question?'}</strong><p>${zh?'查看完整问答，了解施工范围、适用情况、时间、价格及清洗后的注意事项。':'Explore the full FAQ for service scope, suitability, timing, pricing and what to expect after cleaning.'}</p></div><a class="button button-green" href="${p}/faq-reviews/">${zh?'查看全部问题':'VIEW ALL QUESTIONS'} →</a></div>`;
+  html=html.replace(faqTopLink,'').replace(faqFive,`${faqThree}${faqGuide}`);
   return html;
 }
 
