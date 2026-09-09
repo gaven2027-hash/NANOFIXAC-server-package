@@ -8,3 +8,9 @@
 .auth-card h1{font-size:30px;line-height:1.1;letter-spacing:-.04em;margin:0}.auth-card>p{margin:0;color:var(--muted)}.auth-card .btn{width:100%;margin-top:4px}.auth-card>a{color:var(--green);text-decoration:none;font-weight:800;font-size:13px;text-align:center}.auth-brand{padding:0 0 14px}.auth-message{min-height:22px;color:#b53d2e!important;font-size:13px}.consent-field label{display:flex;align-items:flex-start;gap:10px;font-weight:600}.consent-field input{width:18px;height:18px;margin-top:2px;accent-color:var(--green)}
 
 .admin-logo{display:block;width:76px;height:auto;max-width:100%;object-fit:contain;background:transparent!important;padding:0!important;border-radius:0!important}.auth-brand .admin-logo{width:76px;margin-inline:auto}.brand .admin-logo{width:76px;margin:0 auto 8px 0}@media(max-width:720px){.brand .admin-logo,.auth-brand .admin-logo{width:76px}}
+
+
+/* The new transparent PNG must remain visible on the dark admin sidebar and auth card. */
+.admin-logo{display:block!important;visibility:visible!important;opacity:1!important;width:160px!important;height:auto!important;max-width:100%;object-fit:contain;background:transparent!important;padding:0!important;border-radius:0!important}
+.auth-brand .admin-logo{width:180px!important;margin:0 auto 8px!important}
+.brand .admin-logo{width:160px!important;margin:0 auto 8px!important}

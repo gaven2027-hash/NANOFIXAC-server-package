@@ -173,3 +173,8 @@ body{background:#edf2ef}
 .footer .logo.logo-image::before{content:"NANOFIX";color:#39b981}
 .footer .logo.logo-image::after{content:"AC";color:#ffd060}
 @media(max-width:620px){.footer .logo.logo-image{font-size:1.15rem}}
+
+
+/* Keep the transparent PNG logo visible in every header, including after cache refreshes. */
+.logo.logo-image{display:flex!important;align-items:center;justify-content:flex-start;visibility:visible!important;opacity:1!important;overflow:visible}
+.logo.logo-image img{display:block!important;visibility:visible!important;opacity:1!important;width:100%;height:auto;min-height:1px;object-fit:contain}
