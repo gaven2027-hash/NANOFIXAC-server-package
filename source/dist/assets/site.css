@@ -136,3 +136,23 @@ body{background:#edf2ef}
 @keyframes waDotBreath{0%,100%{transform:scale(.82);opacity:.72;box-shadow:0 0 0 0 rgba(255,70,85,.42)}45%{transform:scale(1.22);opacity:1;box-shadow:0 0 0 7px rgba(255,70,85,0)}}
 @media(max-width:620px){.whatsapp-float{right:14px;width:60px;height:60px}.whatsapp-float .wa-icon{width:43px;height:43px}.whatsapp-float .wa-icon svg{width:30px;height:30px}.whatsapp-float .wa-dot{width:14px;height:14px}}
 @media(prefers-reduced-motion:reduce){.trust-row span,.whatsapp-float,.whatsapp-float::after,.whatsapp-float .wa-dot{animation:none}}
+
+/* Final visual pass: footer wordmark, navigation balance, breathing highlights and updated copy. */
+.footer .logo.logo-image{width:auto;display:inline-flex;align-items:baseline;gap:0;margin-left:0;font-size:1.38rem;font-weight:950;letter-spacing:-.055em;line-height:1}
+.footer .logo.logo-image .logo-img{display:none}
+.footer .logo.logo-image::before{content:"NANOFIX";color:#39b981}
+.footer .logo.logo-image::after{content:"AC";color:#f7a51a}
+.footer-bottom{justify-content:center;text-align:center;gap:16px;flex-wrap:wrap}
+.nav{gap:36px}
+.logo.logo-image{margin-left:10px}
+.nav-links{gap:24px}
+.friend-link strong{animation:leakBreath 2.6s ease-in-out infinite}
+@keyframes leakBreath{0%,100%{color:#ffd060;text-shadow:0 0 0 rgba(255,208,96,0)}50%{color:#fff0ad;text-shadow:0 0 12px rgba(255,208,96,.72)}}
+.trust-row span{animation:trustBreathe 3.6s ease-in-out infinite}
+.trust-row span:nth-child(2){animation-delay:1.2s}
+.trust-row span:nth-child(3){animation-delay:2.4s}
+@keyframes trustBreathe{0%,100%{color:rgba(255,255,255,.7);filter:none;text-shadow:none;transform:translateY(0)}35%,55%{color:#ffe08a;filter:drop-shadow(0 0 8px rgba(255,208,96,.62));text-shadow:0 0 15px rgba(255,208,96,.48);transform:translateY(-1px)}70%{color:#dff9eb;filter:none;text-shadow:none;transform:translateY(0)}}
+.map-frame iframe{height:351px}
+.hero-copy h1{font-size:clamp(1.95rem,2.78vw,3.15rem)}
+@media(max-width:620px){.hero-copy h1{font-size:2.05rem}.footer-bottom{gap:4px}.nav{gap:18px}.logo.logo-image{margin-left:0}.map-frame iframe{height:300px}}
+@media(prefers-reduced-motion:reduce){.trust-row span,.friend-link strong{animation:none}}

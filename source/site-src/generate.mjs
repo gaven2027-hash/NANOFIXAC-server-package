@@ -18,14 +18,14 @@ const routes = [
 const common = {
   en: {
     lang:'en-SG', short:'en', home:'Home', services:'Services', faq:'FAQ & Reviews', contact:'Contact Us', book:'BOOK A CLEANING', chinese:'中文',
-    top:'High-temperature steam aircon chemical cleaning across Singapore', related:'Related NANOFIX Services', leak:'Leak Detection & Waterproofing Services',
+    top:'High-temperature steam aircon chemical cleaning across Singapore', related:'Related NANOFIX Services', leak:'Waterproofing inspection & repair — click here',
     leakDesc:'Professional leak diagnosis and waterproofing repair in Singapore.', quick:'Quick links', company:'Company', serviceLabel:'Aircon cleaning services',
     whatsapp:'Chat with NANOFIX', ctaTitle:'Ready for a deeper aircon clean?', ctaText:'Tell us the unit quantity, condition and preferred date. We will confirm the suitable service and price.',
     copyright:'© 2026 NANOFIX PTE. LTD. All rights reserved.', privacy:'Privacy Policy', terms:'Terms of Service'
   },
   zh: {
     lang:'zh-SG', short:'zh', home:'首页', services:'服务', faq:'常见问题与评论', contact:'联系我们', book:'预约清洗', chinese:'English',
-    top:'新加坡高温蒸汽空调化学清洗服务', related:'NANOFIX相关服务', leak:'漏水检测与防水维修网站',
+    top:'新加坡高温蒸汽空调化学清洗服务', related:'NANOFIX相关服务', leak:'防水检测维修，点击这里',
     leakDesc:'新加坡专业漏水检测及防水维修服务。', quick:'快速链接', company:'公司资料', serviceLabel:'空调清洗服务',
     whatsapp:'WhatsApp咨询', ctaTitle:'准备为您的空调进行深度清洗？', ctaText:'告诉我们空调数量、目前状况和希望日期，我们将确认适合的服务和价格。',
     copyright:'© 2026 NANOFIX PTE. LTD. 版权所有。', privacy:'隐私政策', terms:'服务条款'
