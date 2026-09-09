@@ -120,3 +120,5 @@ body{background:#edf2ef}
 .step::before{font-size:2rem;line-height:1}
 .review-index::before{font-size:1.55rem;line-height:1}
 .consent-field label{display:flex;align-items:flex-start;gap:10px;font-weight:600}.consent-field input{width:19px;height:19px;flex:0 0 19px;margin-top:3px;accent-color:var(--green-deep)}
+
+.logo.logo-image{display:block;width:148px;margin-right:auto}.logo.logo-image .logo-img{display:block;width:100%;height:auto;max-width:none}.footer .logo.logo-image{width:190px;padding:6px;background:#fff;border-radius:12px;margin-bottom:14px}@media(max-width:620px){.logo.logo-image{width:122px}.footer .logo.logo-image{width:178px}}
