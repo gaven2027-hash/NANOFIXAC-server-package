@@ -167,3 +167,9 @@ body{background:#edf2ef}
 .footer .logo.logo-image{width:76px;display:block;padding:0;background:transparent;border-radius:0;margin:0 0 14px}
 .footer .logo.logo-image::before,.footer .logo.logo-image::after{content:none}
 .footer .logo.logo-image img{display:block;width:100%;height:auto;max-width:none}
+/* Final NANOFIXAC footer wordmark: transparent background with green NANOFIX and yellow AC. */
+.footer .logo.logo-image{width:auto;display:inline-flex;align-items:baseline;gap:0;margin:0 0 14px;font-size:1.38rem;font-weight:950;letter-spacing:-.055em;line-height:1}
+.footer .logo.logo-image img{display:none}
+.footer .logo.logo-image::before{content:"NANOFIX";color:#39b981}
+.footer .logo.logo-image::after{content:"AC";color:#ffd060}
+@media(max-width:620px){.footer .logo.logo-image{font-size:1.15rem}}
