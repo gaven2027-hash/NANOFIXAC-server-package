@@ -136,3 +136,19 @@ body{background:#edf2ef}
 .step::before{font-size:2rem;line-height:1}
 .review-index::before{font-size:1.55rem;line-height:1}
 .consent-field label{display:flex;align-items:flex-start;gap:10px;font-weight:600}.consent-field input{width:19px;height:19px;flex:0 0 19px;margin-top:3px;accent-color:var(--green-deep)}
+
+/* Shared footer wordmark: text only, matching the NANOFIXAC brand colours. */
+.footer-wordmark{display:inline-flex;align-items:baseline;margin:0 0 17px;font-size:1.38rem;font-weight:950;letter-spacing:-.055em;line-height:1;white-space:nowrap}
+.footer-wordmark span{color:#39b981}
+.footer-wordmark b{color:#f7a51a;font:inherit;letter-spacing:inherit}
+
+/* Final WhatsApp control: green brand button, white glyph, breathing halo and alert dot. */
+.whatsapp-float{display:grid;place-items:center;width:68px;height:68px;top:75%;right:22px;bottom:auto;padding:0;border:3px solid #fff;border-radius:50%;transform:translateY(-50%);background:linear-gradient(145deg,#31dc78 0%,#25d366 50%,#16b957 100%);color:#fff;box-shadow:0 0 0 7px rgba(37,211,102,.16),0 18px 42px rgba(18,130,90,.38);isolation:isolate;animation:waGreenBreath 1.9s ease-in-out infinite}
+.whatsapp-float .wa-icon{display:block;width:40px;height:40px;filter:drop-shadow(0 1px 1px rgba(0,0,0,.08))}
+.whatsapp-float .wa-dot{display:block!important;position:absolute;top:-3px;right:-1px;width:17px;height:17px;border:2px solid #fff;border-radius:50%;background:linear-gradient(145deg,#ff8c98,#ef3340);box-shadow:0 0 0 0 rgba(239,51,64,.5);z-index:2;animation:waDotBlink 1.15s ease-in-out infinite}
+.whatsapp-float::after{content:"";position:absolute;inset:-8px;border:2px solid rgba(37,211,102,.52);border-radius:50%;pointer-events:none;animation:waGreenRing 1.9s ease-out infinite}
+@keyframes waGreenBreath{0%,100%{transform:translateY(-50%) scale(1);box-shadow:0 0 0 7px rgba(37,211,102,.16),0 18px 42px rgba(18,130,90,.38)}50%{transform:translateY(-50%) scale(1.08);box-shadow:0 0 0 13px rgba(37,211,102,.24),0 22px 48px rgba(18,130,90,.46)}}
+@keyframes waGreenRing{0%{opacity:.8;transform:scale(.9)}72%,100%{opacity:0;transform:scale(1.45)}}
+@keyframes waDotBlink{0%,100%{opacity:.72;transform:scale(.82);box-shadow:0 0 0 0 rgba(239,51,64,.42)}48%{opacity:1;transform:scale(1.16);box-shadow:0 0 0 7px rgba(239,51,64,0)}}
+@media(max-width:620px){.footer-wordmark{font-size:1.2rem}.whatsapp-float{right:14px;width:62px;height:62px}.whatsapp-float .wa-icon{width:36px;height:36px}.whatsapp-float .wa-dot{width:16px;height:16px}}
+@media(prefers-reduced-motion:reduce){.whatsapp-float,.whatsapp-float::after,.whatsapp-float .wa-dot{animation:none}}
