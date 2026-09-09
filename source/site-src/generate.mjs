@@ -282,6 +282,10 @@ function homeV2Final(locale){
   const oldTrust=zh?'<span>免大拆</span><span>卫生深洗</span><span>清洗后测试</span>':'<span>No major dismantling</span><span>Hygiene-focused</span><span>Post-clean testing</span>';
   const newTrust=zh?'<span>免大拆，不影响整机原厂质保</span><span>化学清洗，去除顽固污垢</span><span>高温蒸汽，杀菌除味</span>':'<span>No major dismantling — designed to preserve the original manufacturer warranty</span><span>Chemical cleaning removes stubborn grime</span><span>High-temperature steam sanitises and removes odour</span>';
   html=html.replace(oldTrust,newTrust);
+  const faqFive=faqMarkup(locale,faqs[locale].slice(0,5));
+  const faqThree=faqMarkup(locale,faqs[locale].slice(0,3));
+  const faqMore=`<a class="faq-more-row" href="${localPath('/faq-reviews/',locale)}"><span>${zh?'更多问题':'More questions'}</span><span>${zh?'查看全部问题 →':'View all questions →'}</span></a>`;
+  html=html.replace(faqFive,`${faqThree}${faqMore}`);
   return html;
 }
 
