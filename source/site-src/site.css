@@ -170,6 +170,21 @@ body{background:#edf2ef}
 @media(min-width:931px){.faq-intro{align-items:stretch}.faq-intro>.photo-frame{position:relative;top:auto;align-self:stretch;aspect-ratio:auto;min-height:0;height:auto}.faq-intro>.photo-frame img{height:100%;object-fit:cover}.faq-intro>div:last-child{display:flex;min-width:0;flex-direction:column}}
 @media(max-width:620px){.faq-guide{align-items:flex-start;flex-direction:column}.faq-guide .button{width:100%}}
 
+/* NFAC WEB upgrade: align the homepage hero with the Contact hero, keep the
+   lead technician's head visible, and make the requested attention cues clear. */
+.hero-photo{min-height:450px}
+.hero-overlay{padding-top:52px;padding-bottom:52px}
+.hero-photo-bg{object-position:center top}
+.hero-copy h1{display:block;width:125%;transform:scaleX(.8);transform-origin:left center}
+.friend-link strong{animation:relatedServiceFlash 1.15s ease-in-out infinite;color:var(--orange-light);text-shadow:0 0 10px rgba(255,208,96,.42)}
+@keyframes relatedServiceFlash{0%,100%{color:#ffd060;text-shadow:0 0 9px rgba(255,208,96,.58);filter:brightness(1)}45%,55%{color:#79dea9;text-shadow:0 0 16px rgba(121,222,169,.84);filter:brightness(1.2)} }
+@media(max-width:930px){.hero-photo{min-height:420px}.hero-overlay{padding-top:44px;padding-bottom:44px}.hero-photo-bg{object-position:68% top}}
+@media(max-width:620px){.hero-photo{min-height:470px}.hero-overlay{padding-top:52px;padding-bottom:52px}.hero-copy h1{width:125%;transform:scaleX(.8)}.hero-photo-bg{object-position:68% top}}
+@media(prefers-reduced-motion:reduce){.friend-link strong{animation:none;color:#ffd060;text-shadow:none}}
+
+/* Preserve the complete three-stage cleaning animation inside case cards. */
+.case-card img[src$=".gif"]{aspect-ratio:16/10;object-fit:cover;background:var(--navy-dark)}
+
 /* Hero trust points alternate between NANOFIX green and warm gold. */
 .hero-copy .trust-row span{display:inline-flex;align-items:center;color:#79dea9;text-shadow:0 0 10px rgba(121,222,169,.5);animation:trustDualColour 3.6s ease-in-out infinite}
 .hero-copy .trust-row span:nth-child(2){animation-delay:1.2s}
