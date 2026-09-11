@@ -177,6 +177,19 @@ body{background:#edf2ef}
 .footer-bottom{justify-content:center;text-align:center}
 @media(max-width:620px){.map-frame iframe{height:315px}.footer-wordmark,.footer-grid h3{min-height:auto}}
 
+/* Footer rhythm: keep the first three information columns on one consistent
+   vertical cadence while leaving the related-services card visually balanced. */
+.footer-grid{align-items:start}
+.footer-grid>div{min-width:0}
+.footer-grid>div:first-child>p:first-of-type{margin:0 0 10px;line-height:1.5}
+.footer-grid>div:first-child>a{display:flex;align-items:center;min-height:35px;margin:0;line-height:1.45}
+.footer-contact-address{min-height:72px;margin:6px 0 0!important;line-height:1.5}
+.footer-grid>div:nth-child(2)>a,.footer-grid>div:nth-child(3)>a{display:flex;align-items:flex-start;min-height:35px;margin:0;padding:4px 0;line-height:1.45}
+@media(max-width:620px){
+  .footer-grid>div:first-child>p:first-of-type{min-height:0}
+  .footer-contact-address{min-height:0}
+}
+
 /* Homepage FAQ: three concise questions, a bottom guide and equal-height columns. */
 .faq-guide{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:18px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72)}
 .faq-guide strong{display:block;font-size:1.04rem;color:var(--navy)}
