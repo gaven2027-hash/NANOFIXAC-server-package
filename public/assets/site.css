@@ -171,7 +171,8 @@ body{background:#edf2ef}
 .nav-links>a,.nav-group>a{font-size:1.128rem}
 .map-frame iframe{height:315px}
 .footer-wordmark,.footer-grid h3{display:flex;align-items:center;min-height:32px;margin:0 0 14px;line-height:1.2}
-.footer-grid>div:first-child>p{margin-top:0}
+.footer-grid>div:first-child>p:first-of-type{margin-top:0}
+.footer-contact-address{margin:12px 0 0!important;max-width:290px;line-height:1.55}
 .footer-grid h3+a,.footer-grid h3+.friend-link{margin-top:0}
 .footer-bottom{justify-content:center;text-align:center}
 @media(max-width:620px){.map-frame iframe{height:315px}.footer-wordmark,.footer-grid h3{min-height:auto}}
