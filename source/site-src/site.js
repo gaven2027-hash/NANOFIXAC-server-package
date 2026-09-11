@@ -1,3 +1,15 @@
+const contactColumn = document.querySelector('.footer-grid>div:first-child');
+const phoneLink = contactColumn?.querySelector('a[href^="tel:"]');
+if (contactColumn && phoneLink && !contactColumn.querySelector('.footer-website')) {
+  const website = document.createElement('a');
+  website.className = 'footer-website';
+  website.href = 'https://www.nanofixac.com';
+  website.target = '_blank';
+  website.rel = 'noopener noreferrer';
+  website.textContent = 'www.nanofixac.com';
+  phoneLink.insertAdjacentElement('afterend', website);
+}
+
 document.querySelectorAll('[data-menu]').forEach(button => button.addEventListener('click', () => {
   const nav = document.querySelector('[data-nav]');
   const open = nav.classList.toggle('is-open');

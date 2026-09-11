@@ -202,6 +202,8 @@ body{background:#edf2ef}
 .footer-grid>div:first-child>p:first-of-type{margin-bottom:2px;line-height:1.25}
 .footer-grid>div:first-child>a{min-height:26px;line-height:1.25}
 .footer-contact-address{margin-top:1px!important;line-height:1.25}
+.friend-url{display:inline-block;margin-top:4px;color:#b9c9d4;font-size:.88rem;line-height:1.25}
+.footer-website{color:#b9c9d4!important}
 
 /* Homepage FAQ: three concise questions, a bottom guide and equal-height columns. */
 .faq-guide{display:flex;align-items:center;justify-content:space-between;gap:22px;margin-top:18px;padding:20px 22px;border:1px solid var(--line);border-radius:18px;background:rgba(255,255,255,.72)}
