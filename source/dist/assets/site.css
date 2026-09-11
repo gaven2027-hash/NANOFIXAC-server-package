@@ -153,6 +153,20 @@ body{background:#edf2ef}
 @media(max-width:620px){.footer-wordmark{font-size:1.2rem}.whatsapp-float{right:14px;width:62px;height:62px}.whatsapp-float .wa-icon{width:36px;height:36px}.whatsapp-float .wa-dot{width:16px;height:16px}}
 @media(prefers-reduced-motion:reduce){.whatsapp-float,.whatsapp-float::after,.whatsapp-float .wa-dot{animation:none}}
 
+/* Keep primary navigation visible on phones so the main sections are one tap
+   away. Secondary links still open as a desktop-style dropdown when focused. */
+@media(max-width:930px){
+  .nav{flex-wrap:wrap;min-height:0;gap:12px 18px;padding:14px 0 10px}
+  .nav-links{display:flex;position:static;order:3;flex:1 0 100%;width:100%;padding:2px 0 5px;background:transparent;box-shadow:none;flex-direction:row;flex-wrap:wrap;align-items:center;gap:7px 18px}
+  .nav-links.is-open{display:flex}
+  .nav-links>a,.nav-group>a{font-size:1rem;line-height:1.35}
+  .nav-group{width:auto}
+  .nav-group>a::after{margin-left:3px}
+  .submenu{display:none;position:absolute;left:0;top:calc(100% + 7px);width:min(330px,calc(100vw - 28px));padding:12px;background:#fff;border:1px solid var(--line);border-radius:16px;box-shadow:var(--shadow);z-index:4}
+  .nav-group:hover .submenu,.nav-group:focus-within .submenu{display:grid}
+  .nav>.button,.menu-button{display:none}
+}
+
 /* Final alignment and sizing refinements shared by every generated page. */
 .nav-links>a,.nav-group>a{font-size:1.128rem}
 .map-frame iframe{height:315px}
