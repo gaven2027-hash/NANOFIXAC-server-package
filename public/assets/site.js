@@ -22,6 +22,52 @@ document.querySelectorAll('[data-faq-button]').forEach(button => button.addEvent
   button.setAttribute('aria-expanded', String(open));
 }));
 
+// First-visit WhatsApp greeting: keep the prompt local to this browser and
+// leave the existing floating WhatsApp action as the single contact target.
+(function setupWhatsAppGreeting(){
+  const button = document.querySelector('.whatsapp-float');
+  if (!button || document.querySelector('[data-whatsapp-greeting]')) return;
+
+  const zh = document.documentElement.lang.toLowerCase().startsWith('zh');
+  const prompt = document.createElement('aside');
+  prompt.className = 'whatsapp-greeting';
+  prompt.dataset.whatsappGreeting = '';
+  prompt.hidden = true;
+  prompt.setAttribute('role', 'dialog');
+  prompt.setAttribute('aria-label', zh ? 'WhatsApp咨询提示' : 'WhatsApp chat prompt');
+  prompt.innerHTML = `
+    <button class="whatsapp-greeting-close" type="button" aria-label="${zh ? '关闭提示' : 'Close prompt'}">×</button>
+    <a class="whatsapp-greeting-link" href="${button.href}" target="_blank" rel="noopener noreferrer">
+      <span class="whatsapp-greeting-avatar" aria-hidden="true"></span>
+      <span class="whatsapp-greeting-copy">
+        <strong>${zh ? '您好，请问有什么可以帮您？' : 'Hello, do you have any questions?'}</strong>
+        <span>${zh ? '请在这里留言。' : 'Please write us here.'}</span>
+      </span>
+    </a>
+    <span class="whatsapp-greeting-tail" aria-hidden="true"></span>`;
+  document.body.append(prompt);
+
+  const seenKey = 'nanofixac_whatsapp_greeting_seen_v1';
+  let seen = false;
+  try { seen = localStorage.getItem(seenKey) === '1'; } catch (error) {}
+
+  const hide = () => { prompt.hidden = true; prompt.classList.remove('is-visible'); };
+  const rememberAndHide = () => {
+    try { localStorage.setItem(seenKey, '1'); } catch (error) {}
+    hide();
+  };
+  prompt.querySelector('.whatsapp-greeting-close').addEventListener('click', rememberAndHide);
+  prompt.querySelector('.whatsapp-greeting-link').addEventListener('click', rememberAndHide);
+
+  if (!seen) {
+    window.setTimeout(() => {
+      try { localStorage.setItem(seenKey, '1'); } catch (error) {}
+      prompt.hidden = false;
+      window.requestAnimationFrame(() => prompt.classList.add('is-visible'));
+    }, 900);
+  }
+})();
+
 const form = document.querySelector('[data-booking-form]');
 if (form) form.addEventListener('submit', event => {
   event.preventDefault();
