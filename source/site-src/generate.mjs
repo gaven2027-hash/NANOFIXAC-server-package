@@ -197,9 +197,8 @@ function template(locale,route,page){return templateRaw(locale,route,page)
   .replace('<script src="/assets/site.js" defer></script>','<script src="/assets/supabase-config.js"></script><script src="/assets/site.js" defer></script><script src="/assets/site-admin.js" defer></script>');}
 
 function applyLogoMarkup(html){return html
-  .replace('<div class="footer-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></div>','<img class="footer-logo" src="/assets/images/nanofixac-logo-latest.png" alt="NANOFIXAC.COM" width="1741" height="1578">')
-  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"')
-  .replace(/width="1741" height="1578"/g,'width="1200" height="1088"');}
+  .replace(/<img class="footer-logo"[^>]*>/g,'<div class="footer-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></div>')
+  .replace(/width="2048" height="1430"/g,'width="1200" height="1088"');}
 
 const reviewDraftsEn = [
   'Draft feedback — Bukit Timah condo: the aircon chemical wash removed a stubborn musty smell and the airflow felt noticeably cleaner.',
