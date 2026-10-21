@@ -198,7 +198,8 @@ function template(locale,route,page){return templateRaw(locale,route,page)
 
 function applyLogoMarkup(html){return html
   .replace('<div class="footer-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></div>','<img class="footer-logo" src="/assets/images/nanofixac-logo-latest.png" alt="NANOFIXAC.COM" width="1741" height="1578">')
-  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"');}
+  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"')
+  .replace(/width="1741" height="1578"/g,'width="1200" height="1088"');}
 
 const reviewDraftsEn = [
   'Draft feedback — Bukit Timah condo: the aircon chemical wash removed a stubborn musty smell and the airflow felt noticeably cleaner.',
@@ -334,7 +335,8 @@ const adminHtml=fs.readFileSync(path.join(src,'admin.html'),'utf8')
   .replace('This static-site workspace stores edits and enquiries in localStorage on the current browser. It is not a multi-user database or secure authentication system.','Supabase Auth protects this workspace, while Row Level Security limits customer enquiries and content management to authorised NANOFIX administrators.');
 const adminHtmlFinal=adminHtml
   .replace('<div class="brand auth-brand"><span class="admin-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></span></div>','<div class="brand auth-brand"><img class="admin-auth-logo" src="/assets/images/nanofixac-logo-latest.png" alt="NANOFIXAC.COM" width="1741" height="1578"></div>')
-  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"');
+  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"')
+  .replace(/width="1741" height="1578"/g,'width="1200" height="1088"');
 fs.writeFileSync(path.join(out,'admin','index.html'),adminHtmlFinal);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
 fs.writeFileSync(path.join(out,'CNAME'),'www.nanofixac.com\n');
