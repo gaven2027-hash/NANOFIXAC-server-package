@@ -153,6 +153,10 @@ body{background:#edf2ef}
 @media(max-width:620px){.footer-wordmark{font-size:1.2rem}.whatsapp-float{right:14px;width:62px;height:62px}.whatsapp-float .wa-icon{width:36px;height:36px}.whatsapp-float .wa-dot{width:16px;height:16px}}
 @media(prefers-reduced-motion:reduce){.whatsapp-float,.whatsapp-float::after,.whatsapp-float .wa-dot{animation:none}}
 
+/* Use the uploaded NANOFIXAC.COM logo consistently in the public footer. */
+.footer-logo{display:block;width:184px;height:auto;margin:0 0 17px;object-fit:contain;object-position:left center}
+@media(max-width:620px){.footer-logo{width:165px}}
+
 /* Keep primary navigation visible on phones so the main sections are one tap
    away. Secondary links still open as a desktop-style dropdown when focused. */
 @media(max-width:930px){

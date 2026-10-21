@@ -132,7 +132,7 @@ function asset(name){
     'case-coil-before-after.webp':'aircon-cleaning-sequence.gif',
     'steam-vs-standard.webp':'comparison-focus.webp'
   };
-  return `/assets/images/${aliases[name]||name}`;
+    return `/assets/images/${aliases[name]||name}`;
 }
 function img(name, alt, ratio='wide'){return `<figure class="photo-frame ${ratio==='case'?'case-photo':''}"><img src="${asset(name)}" alt="${alt}" width="1600" height="1000" loading="${name==='hero-steam-cleaning.webp'?'eager':'lazy'}" decoding="async"></figure>`}
 function nav(locale, route){const t=common[locale], prefix=locale==='zh'?'/zh':'';const faqOpen=route.startsWith('/faq-reviews');return `<a class="skip-link" href="#main">${locale==='en'?'Skip to content':'跳至主要内容'}</a><div class="topbar"><div class="container topbar-inner"><span>${t.top}</span><span>UEN 202539469C · <a href="tel:${phoneRaw}">${phone}</a></span></div></div><header class="header"><div class="container nav"><a class="logo logo-image" href="${prefix}/"><img src="${asset('nanofixac-logo-latest.png')}" alt="NANOFIXAC" width="2048" height="1430"></a><nav class="nav-links" data-nav aria-label="${locale==='en'?'Primary navigation':'主要导航'}"><a href="${prefix}/" ${route==='/'?'aria-current="page"':''}>${t.home}</a><div class="nav-group"><a href="${prefix}/services/" aria-haspopup="true" ${route.startsWith('/services')?'aria-current="page"':''}>${t.services}</a><div class="submenu"><a href="${prefix}/services/high-temperature-steam-chemical-cleaning/">${locale==='en'?'Steam Chemical Cleaning':'高温蒸汽化学清洗'}</a><a href="${prefix}/services/steam-vs-standard-aircon-cleaning/">${locale==='en'?'Steam vs Standard Cleaning':'蒸汽化学清洗与普通清洗'}</a><a href="${prefix}/services/why-steam-chemical-cleaning/">${locale==='en'?'Why Choose Steam Cleaning':'为什么选择蒸汽化学清洗'}</a><a href="${prefix}/services/pricing-packages/">${locale==='en'?'Pricing & Packages':'价格与套餐'}</a></div></div><div class="nav-group"><a href="${prefix}/faq-reviews/" aria-haspopup="true" ${faqOpen?'aria-current="page"':''}>${t.faq}</a><div class="submenu"><a href="${prefix}/faq-reviews/aircon-cleaning-faq/">${locale==='en'?'Aircon Cleaning FAQ':'空调清洗详细问答'}</a><a href="${prefix}/faq-reviews/customer-reviews/">${locale==='en'?'Customer Reviews':'客户评论'}</a><a href="${prefix}/faq-reviews/before-after/">${locale==='en'?'Before & After Cases':'清洗前后案例'}</a></div></div><a href="${prefix}/contact/" ${route==='/contact/'?'aria-current="page"':''}>${t.contact}</a><a class="lang-link" href="${switchPath(route,locale)}" lang="${locale==='en'?'zh-SG':'en-SG'}">${t.chinese}</a></nav><a class="button button-orange" href="${prefix}/contact/#booking">${t.book}</a><button class="menu-button" type="button" data-menu aria-expanded="false" aria-label="Menu">☰</button></div></header>`}
@@ -195,6 +195,10 @@ function template(locale,route,page){return templateRaw(locale,route,page)
   .replace(/NANO<span>FIX<\/span><b><\/b>/g,'NANO<span class="logo-fix">F<span class="logo-i">I</span>X</span>')
   .replace(/https:\/\/nanofixsg\.com/g,'https://www.nanofixsg.com')
   .replace('<script src="/assets/site.js" defer></script>','<script src="/assets/supabase-config.js"></script><script src="/assets/site.js" defer></script><script src="/assets/site-admin.js" defer></script>');}
+
+function applyLogoMarkup(html){return html
+  .replace('<div class="footer-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></div>','<img class="footer-logo" src="/assets/images/nanofixac-logo-latest.png" alt="NANOFIXAC.COM" width="1741" height="1578">')
+  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"');}
 
 const reviewDraftsEn = [
   'Draft feedback — Bukit Timah condo: the aircon chemical wash removed a stubborn musty smell and the airflow felt noticeably cleaner.',
@@ -313,7 +317,7 @@ fs.copyFileSync(path.join(src,'admin.js'),path.join(out,'assets','admin.js'));
 fs.copyFileSync(path.join(src,'supabase-config.js'),path.join(out,'assets','supabase-config.js'));
 const imageSource=path.join(src,'assets');
 if(fs.existsSync(imageSource)) for(const file of fs.readdirSync(imageSource)) fs.copyFileSync(path.join(imageSource,file),path.join(out,'assets','images',file));
-for(const locale of ['en','zh']) for(const route of routes){const fileRoute=localPath(route,locale);const target=path.join(out,fileRoute.replace(/^\//,''),'index.html');fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,template(locale,route,data[locale][route]));}
+for(const locale of ['en','zh']) for(const route of routes){const fileRoute=localPath(route,locale);const target=path.join(out,fileRoute.replace(/^\//,''),'index.html');fs.mkdirSync(path.dirname(target),{recursive:true});fs.writeFileSync(target,applyLogoMarkup(template(locale,route,data[locale][route])));}
 fs.mkdirSync(path.join(out,'admin'),{recursive:true});
 const adminAuth=`<section class="auth-screen" id="admin-auth"><form class="auth-card" id="login-form"><div class="brand auth-brand"><span class="admin-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></span></div><div class="eyebrow">SECURE ADMIN ACCESS</div><h1>Sign in to manage the website</h1><p>Use your authorised NANOFIX administrator account.</p><div class="field"><label for="login-email">Email</label><input id="login-email" name="email" type="email" autocomplete="username" required value="nanofixac@gmail.com"></div><div class="field"><label for="login-password">Password</label><input id="login-password" name="password" type="password" autocomplete="current-password" required></div><button class="btn orange" type="submit">Sign in</button><p class="auth-message" id="auth-message" role="status"></p><a href="/">← Back to website</a></form></section>`;
 const adminHtml=fs.readFileSync(path.join(src,'admin.html'),'utf8')
@@ -328,7 +332,10 @@ const adminHtml=fs.readFileSync(path.join(src,'admin.html'),'utf8')
   .replace('View, qualify and reply to booking enquiries captured from this browser.','View, qualify and reply to enquiries securely stored in Supabase.')
   .replace('data-action="clear-leads">Clear all','data-action="clear-leads">Refresh from Supabase')
   .replace('This static-site workspace stores edits and enquiries in localStorage on the current browser. It is not a multi-user database or secure authentication system.','Supabase Auth protects this workspace, while Row Level Security limits customer enquiries and content management to authorised NANOFIX administrators.');
-fs.writeFileSync(path.join(out,'admin','index.html'),adminHtml);
+const adminHtmlFinal=adminHtml
+  .replace('<div class="brand auth-brand"><span class="admin-wordmark" aria-label="NANOFIXAC"><span>NANOFIX</span><b>AC</b></span></div>','<div class="brand auth-brand"><img class="admin-auth-logo" src="/assets/images/nanofixac-logo-latest.png" alt="NANOFIXAC.COM" width="1741" height="1578"></div>')
+  .replace(/width="2048" height="1430"/g,'width="1741" height="1578"');
+fs.writeFileSync(path.join(out,'admin','index.html'),adminHtmlFinal);
 fs.copyFileSync(path.join(out,'index.html'),path.join(out,'404.html'));
 fs.writeFileSync(path.join(out,'CNAME'),'www.nanofixac.com\n');
 const urls=[];for(const locale of ['en','zh'])for(const route of routes)urls.push(`${base}${localPath(route,locale)}`);
